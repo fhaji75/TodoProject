@@ -2,27 +2,28 @@ package com.urmiacoder.TodoProject.model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "userInformation")
+@Table(name ="userInformation")
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String descriptionOfDuty;
+    private String name;
+
+    @OneToMany(targetEntity = Task.class)
+    private List<Task> tasks;
 
     public User(){
         super();
     }
-    public User(Long id,String descriptionOfDuty){
+    public User(Long id,String name){
         super();
         this.id=id;
-        this.descriptionOfDuty=descriptionOfDuty;
+        this.name =name;
     }
     public Long getId() {
         return id;
@@ -32,12 +33,20 @@ public class User {
         this.id = id;
     }
 
-    public String getDescriptionOfDuty() {
-        return descriptionOfDuty;
+    public String getName() {
+        return name;
     }
 
-    public void setDescriptionOfDuty(String descriptionOfDuty) {
-        this.descriptionOfDuty = descriptionOfDuty;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
 }

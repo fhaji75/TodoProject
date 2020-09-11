@@ -16,28 +16,28 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/userInformation")
-    public List<User> getAllNotes(){
+    public List<User> getAllUser(){
         return userRepository.findAll();
     }
 
     @PostMapping("/userInformation")
-    public User createNote(@Valid @RequestBody User user)
+    public User createUser(@Valid @RequestBody User user)
     {
         return userRepository.save(user);
     }
 
     @PutMapping("/userInformation/{id}")
-    public User updateNote(@PathVariable(value ="id")Long userId,@Valid @RequestBody User userDescriptions)
+    public User updateUser(@PathVariable(value ="id")Long userId,@Valid @RequestBody User userDescriptions)
             throws UserNotFoundException {
         User user =
                 userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
-        user.setDescriptionOfDuty(userDescriptions.getDescriptionOfDuty());
+        user.setName(userDescriptions.getName());
         User updateUser = userRepository.save(user);
         return updateUser;
     }
     @DeleteMapping("/userInformation/{id}")
 
-    public void deleteuser(@PathVariable(value = "id") Long userId) throws UserNotFoundException {
+    public void deleteUser(@PathVariable(value = "id") Long userId) throws UserNotFoundException {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
 
