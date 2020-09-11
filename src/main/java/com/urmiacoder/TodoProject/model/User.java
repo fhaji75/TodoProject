@@ -1,4 +1,4 @@
-package com.urmiacoder.TodoProject.Model;
+package com.urmiacoder.TodoProject.model;
 
 
 

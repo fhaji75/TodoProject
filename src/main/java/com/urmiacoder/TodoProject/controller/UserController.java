@@ -1,7 +1,7 @@
-package com.urmiacoder.TodoProject.Controller;
+package com.urmiacoder.TodoProject.controller;
 
 
-import com.urmiacoder.TodoProject.Model.User;
+import com.urmiacoder.TodoProject.model.User;
 import com.urmiacoder.TodoProject.repository.UserRepository;
 import com.urmiacoder.TodoProject.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
